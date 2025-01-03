@@ -1,7 +1,6 @@
 import Image from "next/image";
 import imgStore from "@images/banner-store.png";
-import MenList from "../categories/Men-list";
-import WomenList from "../categories/Women-list";
+import CategoriesList from "../categories/Categories-list";
 
 const HomeCollections = () => {
   return (
@@ -14,13 +13,13 @@ const HomeCollections = () => {
             <div>
               <h4>Mens</h4>
               <ul className="mt-5 space-y-3">
-                <MenList />
+                <CategoriesList gender={"mens"} />
               </ul>
             </div>
             <div>
               <h4>Womens</h4>
               <ul className="mt-5 space-y-3">
-                <WomenList />
+                <CategoriesList gender={"womens"} />
               </ul>
             </div>
           </div>

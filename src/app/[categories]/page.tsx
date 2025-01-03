@@ -1,5 +1,4 @@
-import MenList from "@/components/categories/Men-list";
-import WomenList from "@/components/categories/Women-list";
+import CategoriesList from "@/components/categories/Categories-list";
 
 export default async function CategoryPage({
   params,
@@ -7,6 +6,7 @@ export default async function CategoryPage({
   params: Promise<{ categories: string }>;
 }) {
   const categories = (await params).categories;
+  const gender = categories.includes("womens") ? "womens" : "mens";
 
   return (
     <div className="my-6 *:py-6">
@@ -14,7 +14,7 @@ export default async function CategoryPage({
       {/* <h1>{categories} Page</h1> */}
 
       <div className="flex justify-center space-x-10">
-        <MenList />
+        <CategoriesList gender={gender} />
       </div>
     </div>
   );
