@@ -10,6 +10,7 @@
   --bgProduct3: #E4E4E4;
   --bgProduct4: #F4F4F4;
   --bgProduct5: #F2F3F8;
+  --bgProductItems: #F8F7F3;
 }
 
 @media (prefers-color-scheme: dark) {
