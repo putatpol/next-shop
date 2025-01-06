@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   MEN_SHIRTS_ROUTE_PATH,
   MEN_SHOES_ROUTE_PATH,
-  MEN_SUNGLASSES_ROUTE_PATH,
   MEN_WATCHES_ROUTE_PATH,
   WOMEN_BAGS_ROUTE_PATH,
   WOMEN_DRESSES_ROUTE_PATH,
@@ -26,10 +25,6 @@ const manNavLink = [
   {
     name: "Watches",
     href: MEN_WATCHES_ROUTE_PATH,
-  },
-  {
-    name: "Sunglasses",
-    href: MEN_SUNGLASSES_ROUTE_PATH,
   },
 ];
 

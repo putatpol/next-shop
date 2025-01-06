@@ -2,7 +2,7 @@
 export const MEN_SHIRTS_ROUTE_PATH = "/mens-shirts";
 export const MEN_SHOES_ROUTE_PATH = "/mens-shoes";
 export const MEN_WATCHES_ROUTE_PATH = "/mens-watches";
-export const MEN_SUNGLASSES_ROUTE_PATH = "/mens-sunglasses";
+// export const MEN_SUNGLASSES_ROUTE_PATH = "/mens-sunglasses";
 
 // Categories Womens
 export const WOMEN_BAGS_ROUTE_PATH = "/womens-bags";

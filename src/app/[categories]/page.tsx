@@ -1,30 +1,37 @@
 import CategoriesList from "@/components/categories/Categories-list";
 import ProductItems from "@/components/product/ProductItems";
-import { ProductApiDto } from "@/interface/productsApi.dto";
+import {
+  ProductsApiResponse,
+} from "@/interface/productsApi.dto";
 
 export default async function CategoryPage({
   params,
 }: {
   params: Promise<{ categories: string }>;
 }) {
-  const categories = (await params).categories;
-  const gender = categories.includes("womens") ? "womens" : "mens";
+  const category = (await params).categories;
+  const gender = category.includes("womens") ? "womens" : "mens";
 
+  // Route api products(by category)
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products`,
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products?category=${category}`,
   );
-  const products: ProductApiDto[] = await res.json();
-  console.log(products)
+  const response: ProductsApiResponse = await res.json();
+  const productList = response.products;
 
   return (
-    <div className="container mx-auto my-6 *:py-6">
+    <div className="container mx-auto my-6 *:py-6 px-3 xl:px-0">
       <h2 className="text-center text-5xl font-thin">Collections</h2>
-      {/* <h1>{categories} Page</h1> */}
-
-      <div className="flex justify-center space-x-10">
+      <div className="flex justify-center gap-8 flex-wrap">
         <CategoriesList gender={gender} />
       </div>
-      <ProductItems />
+      {productList && productList.length > 0 ? (
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <ProductItems productList={productList} />
+        </div>
+      ) : (
+        <p className="text-center text-gray-400">Sorry, No Product Found.</p>
+      )}
     </div>
   );
 }

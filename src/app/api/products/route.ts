@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-//   const url = new URL(request.url);
+const { searchParams } = new URL(request.url);
+const categoryName = searchParams.get("category");
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_CALL_URL}/category/mens-shirts`,
+    `${process.env.NEXT_PUBLIC_API_CALL_URL}/category/${categoryName}`,
     {
       method: "GET",
       cache: "no-store",

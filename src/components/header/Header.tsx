@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="mx-8 flex justify-between border-b p-4 *:flex *:items-center">
+    <header className="mx-8 flex justify-between border-b py-4 px-0 md:px-4 *:flex *:items-center">
       <div>
         <Link href={"/"}>
           <h4>StyleDee</h4>

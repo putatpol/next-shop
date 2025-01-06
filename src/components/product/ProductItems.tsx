@@ -1,35 +1,41 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
-import img from "@images/sc-shoes.png";
 import Image from "next/image";
 import Link from "next/link";
+import { ProductApiDto } from "@/interface/productsApi.dto";
 
-const ProductItems = () => {
+const ProductItems = ({ productList }: { productList: ProductApiDto[] }) => {
+  console.log("Category: ",productList[0].category)
   return (
     <>
-      <div className="grid grid-cols-3 gap-x-4 gap-y-8">
-        <div>
+      {productList.map((item: ProductApiDto) => (
+        <div key={item.id}>
           <Link
             href={"/detail"}
             className="flex w-full justify-center bg-[--bgProductItems]"
           >
-            <Image src={img} alt="test" />
+            <Image
+              width={500}
+              height={500}
+              src={item.thumbnail}
+              alt={item.title}
+            />
           </Link>
           <div className="flex items-center justify-between p-2">
             <div>
               <Link href={"/detail"}>
-                <b className="text-lg">Product name</b>
+                <b className="text-lg line-clamp-1">{item.title}</b>
               </Link>
-              <p className="text-sm">Product categories</p>
-              <b>$200</b>
+              <p className="mb-2 text-sm">{item.category}</p>
+              <b>${item.price}</b>
             </div>
             <button className="self-end">
               <FontAwesomeIcon icon={faCartPlus} className="size-6" />
             </button>
           </div>
         </div>
-      </div>
+      ))}
     </>
   );
 };

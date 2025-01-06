@@ -7,8 +7,8 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="container mx-auto">
-      <div className="flex justify-between py-10">
+    <div className="container mx-auto px-3">
+      <div className="flex justify-between py-10 flex-wrap gap-y-3">
         <h5>StyleDee</h5>
         <div className="flex items-center space-x-5 [&_svg]:size-6">
           <Link
