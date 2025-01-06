@@ -10,6 +10,7 @@ export default async function CategoryPage({
   params: Promise<{ categories: string }>;
 }) {
   const category = (await params).categories;
+  console.log(category)
   const gender = category.includes("womens") ? "womens" : "mens";
 
   // Route api products(by category)

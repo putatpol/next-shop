@@ -6,6 +6,7 @@ export interface ProductApiDto {
   discountPercentage: number;
   rating: number;
   sku: string;
+  availabilityStatus: string;
   reviews: ReviewDto[];
   price: number;
   images: string[];

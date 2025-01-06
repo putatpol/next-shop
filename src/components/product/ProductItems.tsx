@@ -12,7 +12,7 @@ const ProductItems = ({ productList }: { productList: ProductApiDto[] }) => {
       {productList.map((item: ProductApiDto) => (
         <div key={item.id}>
           <Link
-            href={"/detail"}
+            href={`/info/${item.id}`}
             className="flex w-full justify-center bg-[--bgProductItems]"
           >
             <Image
