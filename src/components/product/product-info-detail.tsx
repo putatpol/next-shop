@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown, faStar } from "@fortawesome/free-solid-svg-icons";
 
 const ProductInfoDetail = () => {
   return (
@@ -32,10 +32,10 @@ const ProductInfoDetail = () => {
         <p className="text-sm text-gray-400 line-through">$700</p>
       </div>
 
-      <div className="mt-8 flex gap-4 items-center">
-        <div className="*:size-8 [&_button]:border [&_button]:rounded-lg [&_button]:border-gray-300 space-x-1">
+      <div className="mt-8 flex items-center gap-4">
+        <div className="space-x-1 *:size-8 [&_button]:rounded-lg [&_button]:border [&_button]:border-gray-300">
           <button className="hover:border-gray-500">+</button>
-          <input type="number" className="bg-none text-center"/>
+          <input type="number" className="bg-none text-center" />
           <button className="hover:border-gray-500">-</button>
         </div>
         <button className="rounded-lg bg-black px-4 py-2 text-lg text-white hover:opacity-80">
@@ -43,11 +43,32 @@ const ProductInfoDetail = () => {
         </button>
       </div>
 
-      <div className="mt-8">
-        <div className="flex items-center border-b border-t border-gray-400 p-5">
+      <div className="mt-8 *:p-5 border-b  border-t border-gray-400">
+        <div className="flex items-center">
           <FontAwesomeIcon icon={faCaretDown} className="size-4" />
-          <p>Review</p>
+          <p>Review (3)</p>
         </div>
+
+        {/* item review */}
+        <div className="*:mb-8">
+          <div>
+            <div className="flex justify-between">
+              <div>
+                <FontAwesomeIcon icon={faStar} />
+                <FontAwesomeIcon icon={faStar} />
+                <FontAwesomeIcon icon={faStar} />
+                <FontAwesomeIcon icon={faStar} />
+                <FontAwesomeIcon icon={faStar} />
+              </div>
+              <p>2024-05-23T08:56:21.623Z</p>
+            </div>
+            <div className="mt-2">
+              <b>Elena Long</b>
+              <p>Would not buy again</p>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
   );

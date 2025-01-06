@@ -1,5 +1,6 @@
 import CategoriesList from "@/components/categories/Categories-list";
 import ProductItems from "@/components/product/ProductItems";
+import { ProductApiDto } from "@/interface/productsApi.dto";
 
 export default async function CategoryPage({
   params,
@@ -8,6 +9,12 @@ export default async function CategoryPage({
 }) {
   const categories = (await params).categories;
   const gender = categories.includes("womens") ? "womens" : "mens";
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products`,
+  );
+  const products: ProductApiDto[] = await res.json();
+  console.log(products)
 
   return (
     <div className="container mx-auto my-6 *:py-6">
