@@ -11,10 +11,11 @@ type Props = {
   productsLength: number;
 };
 
+// Button custom style
 const IconCart = ({ productsLength }: Props) => {
   return (
     <>
-      <div className="flex items-center rounded-lg border px-4 py-2 text-sm">
+      <div className="flex items-center rounded-full px-4 py-2 text-sm hover:bg-gray-200">
         <div className="mr-1 size-4">
           <FontAwesomeIcon icon={faCartShopping} />
         </div>
@@ -27,33 +28,20 @@ const IconCart = ({ productsLength }: Props) => {
 const ButtonCart = () => {
   const products = useSelector((state: RootState) => state.productCart.items);
 
-  const calculatePrice = () => {
-    const total = products.reduce((total, item) => total + item.totalPrice, 0);
-    return total.toFixed(2);
-  };
   return (
+    // Menu by headlessui
     <div className="space-x-4">
       <Menu>
-        <MenuButton>
+        <MenuButton className="rounded-full *:border-0">
           <IconCart productsLength={products.length} />
         </MenuButton>
         <MenuItems
           anchor="bottom"
-          className="itemCart mt-2 rounded-lg border shadow-md"
+          className="itemCart mt-4 border border-gray-300 bg-background"
         >
           <MenuItem>
             <ProductCart products={products} />
           </MenuItem>
-          <div className="min-w-[20rem] px-5 py-2 *:flex *:items-center *:justify-between">
-            <div>
-              <small>รายการสินค้า</small>
-              <small>{products.length}</small>
-            </div>
-            <div>
-              <small>ราคารวม</small>
-              <p className="text-rose-500 font-bold">$ {calculatePrice()}</p>
-            </div>
-          </div>
         </MenuItems>
       </Menu>
     </div>

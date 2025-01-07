@@ -13,7 +13,12 @@ export interface ProductApiDto {
   thumbnail: string;
 }
 export interface ProductCartType {
-  products: ProductApiDto;
+  products: {
+    id: number;
+    title: string;
+    price: number;
+    thumbnail: string;
+  };
   quantity: number;
   totalPrice: number;
 }

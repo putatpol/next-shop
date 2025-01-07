@@ -1,19 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, PT_Sans } from "next/font/google";
+import { PT_Sans } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import Header from "@/components/header/Header";
 import Footer from "@/components/Footer";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const ptSans = PT_Sans({
   weight: "400",
@@ -37,7 +27,7 @@ export default function RootLayout({
         <Providers>
           <Header />
         </Providers>
-        <div className="min-h-screen">{children}</div>
+        <div className="mt-20 min-h-screen">{children}</div>
         <Footer />
       </body>
     </html>

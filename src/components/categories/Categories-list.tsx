@@ -53,7 +53,8 @@ const womenNavLink = [
 
 export default function CategoriesList({ gender }: { gender: String }) {
   const pathname = usePathname();
-  const navLinks = gender === "mens" ? manNavLink : gender === "womens" ? womenNavLink : [];
+  const navLinks =
+    gender === "mens" ? manNavLink : gender === "womens" ? womenNavLink : [];
 
   return (
     <>
@@ -62,9 +63,9 @@ export default function CategoriesList({ gender }: { gender: String }) {
           <li key={index} className="list-none">
             <Link
               href={link.href}
-              className={`${
+              className={`rounded-full px-4 py-2 hover:bg-gray-200 ${
                 pathname === link.href &&
-                "pointer-events-none rounded-full bg-black px-4 py-2 text-white"
+                "pointer-events-none bg-black px-4 text-white"
               }`}
             >
               {link.name}
