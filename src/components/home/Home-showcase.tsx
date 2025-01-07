@@ -23,7 +23,7 @@ const HomeShowcase = () => {
             <h3>News</h3>
           </div>
         </div>
-        <div className="size-80 bg-[--bgProduct3]">
+        <div className="size-80 bg-[--bgProductItems]">
           <Image src={imgProductShowcase1} alt="product showcase1" />
         </div>
         <div className="flex size-80 items-center justify-center">
@@ -35,12 +35,12 @@ const HomeShowcase = () => {
             <FontAwesomeIcon icon={faSquareArrowUpRight} className="size-4" />
           </Link>
         </div>
-        <div className="size-80 bg-[--bgProduct3]">
+        <div className="size-80 bg-[--bgProductItems]">
           <Image src={imgProductShowcase2} alt="product showcase2" />
         </div>
       </div>
       <div className="grid grid-cols-4">
-        <div className="size-80 bg-[--bgProduct3]">
+        <div className="size-80 bg-[--bgProductItems]">
           <Image src={imgProductShowcase3} alt="product showcase3" />
         </div>
         <div className="flex size-80 items-center justify-center">
@@ -52,7 +52,7 @@ const HomeShowcase = () => {
             <FontAwesomeIcon icon={faSquareArrowUpRight} className="size-4" />
           </Link>
         </div>
-        <div className="size-80 bg-[--bgProduct3]">
+        <div className="size-80 bg-[--bgProductItems]">
           <Image src={imgProductShowcase4} alt="product showcase4" />
         </div>
         <div className="size-80"></div>

@@ -1,13 +1,12 @@
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-const { searchParams } = new URL(request.url);
-const categoryName = searchParams.get("category");
+  const { searchParams } = new URL(request.url);
+  const categoryName = searchParams.get("category");
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_CALL_URL}/category/${categoryName}`,
     {
       method: "GET",
-      cache: "no-store",
     },
   );
 
@@ -19,5 +18,5 @@ const categoryName = searchParams.get("category");
   }
 
   const products = await res.json();
-  return NextResponse.json(products)
+  return NextResponse.json(products);
 }

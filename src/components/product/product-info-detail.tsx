@@ -3,7 +3,7 @@ import ProductReview from "./product-reviews";
 
 const ProductInfoDetail = ({ productData }: { productData: ProductApiDto }) => {
   return (
-    <div>
+    <div className="flex-1 space-y-6">
       <div>
         <h1>{productData.title}</h1>
         <h5 className="font-thin text-gray-400">{productData.category}</h5>
