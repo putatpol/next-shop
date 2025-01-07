@@ -1,4 +1,4 @@
-import ButtonBack from "@/components/header/ButtonBack";
+import ButtonBack from "@/components/utils/ButtonBack";
 import ProductInfoImage from "@/components/product/product-info-carousel";
 import ProductInfoDetail from "@/components/product/product-info-detail";
 import { ProductApiDto } from "@/interface/productsApi.dto";

@@ -3,7 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { ProductCartType } from "@/interface/productsApi.dto";
 import { useDispatch } from "react-redux";
-import { removeProductCart } from "@/redux/slices/productCartSlice";
+import {
+  removeProductCart,
+  updateProductQuantity,
+} from "@/redux/slices/productCartSlice";
+import { useState } from "react";
 
 type Props = {
   products: ProductCartType[];
@@ -50,14 +54,47 @@ const ProductCart = ({ products }: Props) => {
                 </div>
 
                 <div className="ml-4 flex-1">
+                  {/* Product Name */}
                   <h3 className="line-clamp-1 text-sm font-semibold">
                     {item.products.title}
                   </h3>
-                  <p className="text-sm">$ {item.totalPrice}</p>
-                  <p className="text-sm text-gray-500">
-                    <small>Qty : {item.quantity}</small>
-                  </p>
+
+                   {/* Total Price */}
+                  <p className="text-sm">$ {item.totalPrice.toFixed(2)}</p>
+
+                  {/* Button Quantity */}
+                  <div className="flex gap-2 items-center [&_button]:rounded-lg [&_button]:border [&_button]:border-gray-300 [&_button]:px-2  [&_button]:mt-2">
+                    <button
+                      onClick={() => {
+                        const newQuantity = Math.max(item.quantity - 1, 1);
+                        dispatch(
+                          updateProductQuantity({
+                            id: item.products.id,
+                            quantity: newQuantity,
+                          }),
+                        );
+                      }}
+                    >
+                      -
+                    </button>
+                    <p className="mx-2 text-xs">Qty: {item.quantity}</p>
+                    <button
+                      onClick={() => {
+                        const newQuantity = item.quantity + 1;
+                        dispatch(
+                          updateProductQuantity({
+                            id: item.products.id,
+                            quantity: newQuantity,
+                          }),
+                        );
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
+
+                {/* Button Delete */}
                 <button
                   className="ml-4 flex items-center"
                   onClick={() => handleDeleteProduct(item.products.id)}

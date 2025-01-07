@@ -3,7 +3,7 @@ import { PT_Sans } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import Header from "@/components/header/Header";
-import Footer from "@/components/Footer";
+import Footer from "@/components/utils/Footer";
 
 const ptSans = PT_Sans({
   weight: "400",

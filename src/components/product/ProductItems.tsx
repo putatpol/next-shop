@@ -1,41 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Link from "next/link";
 import { ProductApiDto } from "@/interface/productsApi.dto";
-import { useDispatch } from "react-redux";
-import { addProductCart } from "@/redux/slices/productCartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { handleAddToCart } from "../utils/AddCartHandler";
+import { RootState } from "@/redux/store";
 
 const ProductItems = ({ productList }: { productList: ProductApiDto[] }) => {
   const dispatch = useDispatch();
-  const [clickAddCart, setClickAddCart] = useState<{
-    [key: number]: boolean;
-  }>({});
-
-  // Function add to cart
-  const handleAddToCart = (
-    id: number,
-    title: string,
-    price: number,
-    thumbnail: string,
-  ) => {
-    const totalPrice = price * 1;
-    dispatch(
-      addProductCart({
-        products: { id, title, price, thumbnail },
-        quantity: 1,
-        totalPrice,
-      }),
-    );
-    // Add to cart by id
-    setClickAddCart((prev) => ({ ...prev, [id]: true }));
-    setTimeout(() => {
-      setClickAddCart((prev) => ({ ...prev, [id]: false }));
-    }, 1000);
-  };
+  const loadingCart = useSelector(
+    (state: RootState) => state.productCart.loadingCart,
+  );
 
   // console.log("Category: ", productList[0].category);
   return (
@@ -63,20 +41,22 @@ const ProductItems = ({ productList }: { productList: ProductApiDto[] }) => {
             </div>
             <div className="relative">
               <button
-                className="self-end rounded-full px-3 py-2 hover:bg-gray-200"
-                disabled={clickAddCart[item.id]}
+                className="self-end rounded-full px-3 py-2 hover:bg-gray-200 disabled:text-gray-400"
+                disabled={loadingCart[item.id]}
                 onClick={() => {
                   handleAddToCart(
+                    dispatch,
                     item.id,
                     item.title,
                     item.price,
                     item.thumbnail,
+                    1
                   );
                 }}
               >
                 <FontAwesomeIcon icon={faCartPlus} className="size-6" />
               </button>
-              {clickAddCart[item.id] && (
+              {loadingCart[item.id] && (
                 <span className="animate-fadeUp absolute -translate-y-2 text-gray-500">
                   +1
                 </span>
