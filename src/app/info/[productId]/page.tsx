@@ -1,5 +1,5 @@
 import ButtonBack from "@/components/utils/ButtonBack";
-import ProductInfoImage from "@/components/product/Product-info-carousel";
+import ProductInfoCarousel from "@/components/product/Product-info-carousel";
 import ProductInfoDetail from "@/components/product/Product-info-detail";
 import { ProductApiDto } from "@/interface/productsApi.dto";
 
@@ -23,7 +23,7 @@ export default async function ProductInfoPage({
       <div className="flex flex-wrap items-start  ">
         <div className="basis-full lg:basis-2/5 space-y-4">
           <ButtonBack />
-          <ProductInfoImage images={productData.images} />
+          <ProductInfoCarousel images={productData.images} />
         </div>
         <div className="flex-1 space-y-6 p-3 md:p-5">
           <ProductInfoDetail productData={productData} />
