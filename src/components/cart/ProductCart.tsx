@@ -7,12 +7,14 @@ import {
   removeProductCart,
   updateProductQuantity,
 } from "@/redux/slices/productCartSlice";
+import Link from "next/link";
 
 type Props = {
   products: ProductCartType[];
+  closeMenu: () => void;
 };
 
-const ProductCart = ({ products }: Props) => {
+const ProductCart = ({ products, closeMenu }: Props) => {
   const dispatch = useDispatch();
 
   const handleDeleteProduct = (id: number) => {
@@ -95,13 +97,10 @@ const ProductCart = ({ products }: Props) => {
 
                 {/* Button Delete */}
                 <button
-                  className="ml-4 flex items-center  duration-300 ease-out hover:scale-110 hover:text-red-600"
+                  className="ml-4 flex items-center duration-300 ease-out hover:scale-110 hover:text-red-600"
                   onClick={() => handleDeleteProduct(item.products.id)}
                 >
-                  <FontAwesomeIcon
-                    icon={faTrash}
-                    className="size-3"
-                  />
+                  <FontAwesomeIcon icon={faTrash} className="size-3" />
                 </button>
               </div>
             ))}
@@ -113,8 +112,14 @@ const ProductCart = ({ products }: Props) => {
                 <p className="font-bold">$ {calculatePrice()}</p>
               </div>
 
-              <button className="w-full rounded-full border border-black py-2 hover:bg-black hover:text-white duration-300 ease-out">
-                <p className="w-full text-center">Check Out</p>
+              <button className="w-full rounded-full border border-black py-2 duration-300 ease-out hover:bg-black hover:text-white">
+                <Link
+                  href={"/checkout"}
+                  className="w-full text-center"
+                  onClick={closeMenu}
+                >
+                  <p>Check Out</p>
+                </Link>
               </button>
             </div>
           </>
