@@ -1,6 +1,6 @@
 import { ProductApiDto } from "@/interface/productsApi.dto";
 import ProductReview from "./Product-info-reviews";
-import { ButtonAddCart } from "./Product-info-btnCart";
+import { ButtonAddCart } from "./Product-info-btncarts";
 import { Providers } from "@/app/providers";
 
 const ProductInfoDetail = ({ productData }: { productData: ProductApiDto }) => {
