@@ -10,3 +10,9 @@ export const WOMEN_DRESSES_ROUTE_PATH = "/womens-dresses";
 export const WOMEN_JEWELLERY_ROUTE_PATH = "/womens-jewellery";
 export const WOMEN_SHOES_ROUTE_PATH = "/womens-shoes";
 export const WOMEN_WATCHES_ROUTE_PATH = "/womens-watches";
+
+// Product Showcase
+export const SHOWCASE_PRODUCT1 = `${process.env.SHOWCASE_PRODUCT1}`;
+export const SHOWCASE_PRODUCT2 = `${process.env.SHOWCASE_PRODUCT2}`;
+export const SHOWCASE_PRODUCT3 = `${process.env.SHOWCASE_PRODUCT3}`;
+export const SHOWCASE_PRODUCT4 = `${process.env.SHOWCASE_PRODUCT4}`;

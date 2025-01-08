@@ -1,6 +1,6 @@
 import ButtonBack from "@/components/utils/ButtonBack";
-import ProductInfoImage from "@/components/product/product-info-carousel";
-import ProductInfoDetail from "@/components/product/product-info-detail";
+import ProductInfoImage from "@/components/product/Product-info-carousel";
+import ProductInfoDetail from "@/components/product/Product-info-detail";
 import { ProductApiDto } from "@/interface/productsApi.dto";
 
 export default async function ProductInfoPage({
@@ -8,9 +8,8 @@ export default async function ProductInfoPage({
 }: {
   params: Promise<{ productId: number }>;
 }) {
-  const product_id = (await params).productId;
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_CALL_URL}/${product_id}`,
+    `${process.env.NEXT_PUBLIC_API_CALL_URL}/${(await params).productId}`,
     {
       method: "GET",
     },
@@ -19,12 +18,19 @@ export default async function ProductInfoPage({
   // console.log(productData)
 
   return (
-    <div className="container mx-auto my-6 flex flex-col">
-      <div className="flex items-start gap-10">
-        <ButtonBack />
-        <ProductInfoImage images={productData.images} />
-        <ProductInfoDetail productData={productData} />
+    <>
+      <div className="container mx-auto p-6 ">
+      <div className="flex flex-wrap items-start  ">
+        <div className="basis-full lg:basis-2/5 space-y-4">
+          <ButtonBack />
+          <ProductInfoImage images={productData.images} />
+        </div>
+        <div className="flex-1 space-y-6 p-3 md:p-5">
+          <ProductInfoDetail productData={productData} />
+        </div>
       </div>
     </div>
+      
+    </>
   );
 }

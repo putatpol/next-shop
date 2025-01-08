@@ -1,5 +1,5 @@
 import CategoriesList from "@/components/categories/Categories-list";
-import ProductItems from "@/components/product/ProductItems";
+import ProductItems from "@/components/product/Product-items";
 import { ProductsApiResponse } from "@/interface/productsApi.dto";
 import { Providers } from "../providers";
 

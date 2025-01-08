@@ -3,7 +3,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import ProductCart from "../product/ProductCart";
+import ProductCart from "./ProductCart";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
@@ -15,9 +15,9 @@ type Props = {
 const IconCart = ({ productsLength }: Props) => {
   return (
     <>
-      <div className="flex items-center rounded-full px-4 py-2 text-sm hover:bg-gray-200">
+      <div className="flex items-center rounded-full px-4 py-2 text-sm duration-300 ease-out hover:scale-110 hover:bg-gray-200">
         <div className="mr-1 size-4">
-          <FontAwesomeIcon icon={faCartShopping} />
+          <FontAwesomeIcon icon={faCartShopping} className="size-4" />
         </div>
         <span>({productsLength})</span>
       </div>

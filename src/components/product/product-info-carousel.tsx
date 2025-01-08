@@ -22,54 +22,52 @@ const ProductInfoCarousel = ({ images }: { images: string[] }) => {
 
   return (
     <>
-      <div className="grid w-2/5 gap-2">
-        {/* Image selected */}
-        {selectedImage ? (
-          <div className="justify-items-center bg-[--bgProductItems]">
-            <Image
-              src={selectedImage || phImage}
-              width={500}
-              height={500}
-              quality={10}
-              alt="Product image index"
-              className="w-full object-cover"
-              unoptimized
-              priority
-            />
-          </div>
-        ) : (
-          <div className="flex h-80 w-full items-center justify-center bg-[--bgProductItems]">
-            <p className="text-3xl">StyleDee</p>
-          </div>
-        )}
-
-        {/* Slider Image */}
-        <div className="mx-auto mt-2 w-full gap-4">
-          <Slider {...settings}>
-            {images.map((image, index) => (
-              <div
-                key={index}
-                onClick={() => {
-                  setSelectedImage(image);
-                }}
-                className="m-2"
-              >
-                <div className="group h-full w-full bg-[--bg-bgProductItems]">
-                  <Image
-                    src={image || phImage}
-                    alt="Slide image"
-                    width={100}
-                    height={100}
-                    quality={10}
-                    className="center bg-[--bgProductItems] ring-gray-400 group-hover:cursor-pointer group-hover:ring-1"
-                    unoptimized
-                    priority
-                  />
-                </div>
-              </div>
-            ))}
-          </Slider>
+      {/* Image selected */}
+      {selectedImage ? (
+        <div className="justify-items-center bg-[--bgProductItems]">
+          <Image
+            src={selectedImage || phImage}
+            width={500}
+            height={500}
+            quality={10}
+            alt="Product image index"
+            className="w-full object-cover"
+            unoptimized
+            priority
+          />
         </div>
+      ) : (
+        <div className="flex h-80 w-full items-center justify-center bg-[--bgProductItems]">
+          <p className="text-3xl">StyleDee</p>
+        </div>
+      )}
+
+      {/* Slider Image */}
+      <div className="mx-auto mt-2 w-full gap-4">
+        <Slider {...settings}>
+          {images.map((image, index) => (
+            <div
+              key={index}
+              onClick={() => {
+                setSelectedImage(image);
+              }}
+              className="p-2"
+            >
+              <div className="group flex h-full w-full justify-center bg-[--bg-bgProductItems]">
+                <Image
+                  src={image || phImage}
+                  alt="Slide image"
+                  width={100}
+                  height={100}
+                  quality={10}
+                  className="center bg-[--bgProductItems] ring-gray-400 group-hover:cursor-pointer group-hover:ring-1"
+                  unoptimized
+                  priority
+                />
+              </div>
+            </div>
+          ))}
+        </Slider>
       </div>
     </>
   );

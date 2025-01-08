@@ -51,7 +51,7 @@ const womenNavLink = [
   },
 ];
 
-export default function CategoriesList({ gender }: { gender: String }) {
+export default function CategoriesList({ gender }: { gender: string }) {
   const pathname = usePathname();
   const navLinks =
     gender === "mens" ? manNavLink : gender === "womens" ? womenNavLink : [];

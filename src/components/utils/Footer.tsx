@@ -10,7 +10,7 @@ const Footer = () => {
     <div className="container mx-auto px-3">
       <div className="flex justify-between py-10 flex-wrap gap-y-3">
         <h5>StyleDee</h5>
-        <div className="flex items-center space-x-5 [&_svg]:size-6">
+        <div className="flex items-center space-x-5 [&_svg]:size-6 *:duration-300 *:ease-out hover:*:scale-110">
           <Link
             href={"https://www.linkedin.com/in/puttapol-putthati-611048289"}
             target="_blank"

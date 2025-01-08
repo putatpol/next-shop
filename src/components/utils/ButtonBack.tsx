@@ -8,7 +8,7 @@ const ButtonBack = () => {
   const router = useRouter();
   return (
     <>
-      <button onClick={() => router.back()} className="hover:scale-125">
+      <button onClick={() => router.back()} className="hover:scale-125 duration-300 ease-out">
         <FontAwesomeIcon icon={faArrowLeft} className="size-6"/>
       </button>
     </>

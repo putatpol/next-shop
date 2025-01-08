@@ -19,7 +19,7 @@ const ProductItems = ({ productList }: { productList: ProductApiDto[] }) => {
   return (
     <>
       {productList.map((item: ProductApiDto) => (
-        <div key={item.id}>
+        <div key={item.id} className="group">
           <Link
             href={`/info/${item.id}`}
             className="flex w-full justify-center bg-[--bgProductItems]"
@@ -29,19 +29,22 @@ const ProductItems = ({ productList }: { productList: ProductApiDto[] }) => {
               height={500}
               src={item.thumbnail}
               alt={item.title}
+              className="duration-300 ease-out hover:scale-110"
             />
           </Link>
           <div className="flex items-center justify-between p-2">
             <div>
               <Link href={"/detail"}>
-                <b className="line-clamp-1 text-lg">{item.title}</b>
+                <b className="line-clamp-1 text-lg group-hover:underline">
+                  {item.title}
+                </b>
               </Link>
               <p className="mb-2 text-sm">{item.category}</p>
               <b>${item.price}</b>
             </div>
             <div className="relative">
               <button
-                className="self-end rounded-full px-3 py-2 hover:bg-gray-200 disabled:text-gray-400"
+                className="self-end rounded-full px-3 py-2 duration-300 ease-out hover:scale-110 hover:bg-gray-200 disabled:text-gray-400"
                 disabled={loadingCart[item.id]}
                 onClick={() => {
                   handleAddToCart(
@@ -50,14 +53,14 @@ const ProductItems = ({ productList }: { productList: ProductApiDto[] }) => {
                     item.title,
                     item.price,
                     item.thumbnail,
-                    1
+                    1,
                   );
                 }}
               >
                 <FontAwesomeIcon icon={faCartPlus} className="size-6" />
               </button>
               {loadingCart[item.id] && (
-                <span className="animate-fadeUp absolute -translate-y-2 text-gray-500">
+                <span className="absolute -translate-y-2 animate-fadeUp text-gray-500">
                   +1
                 </span>
               )}

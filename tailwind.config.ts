@@ -19,9 +19,29 @@ export default {
         "0%": { transform: "translateY(0)", opacity: "1" },
         "100%": { transform: "translateY(-20)", opacity: "0" },
       },
+      slideBannerTextLeft: {
+        "0%": { transform: "translateX(200px)", opacity: "0" },
+        "100%": { transform: "translateX(100px)", opacity: "1" },
+      },
+      slideBannerTextRight: {
+        "0%": { transform: "translateX(-200px)", opacity: "0" },
+        "100%": { transform: "translateX(-100px)", opacity: "1" },
+      },
+      slideBannerImgUp: {
+        "0%": { transform: "translateY(100px) translateX(1rem)", opacity: "0" },
+        "100%": { transform: "translateY(0) translateX(1rem)", opacity: "0.7" },
+      },
+      slideBannerImgDown: {
+        "0%": { transform: "translateY(-50px) translateX(-1rem)", opacity: "0" },
+        "100%": { transform: "translateY(5rem) translateX(-1rem)", opacity: "0.7" },
+      },
     },
     animation: {
       fadeUp: "fadeUp 1s ease-out forwards",
+      slideLeft: "slideBannerTextLeft 1s ease-in-out forwards",
+      slideRight: "slideBannerTextRight 1s ease-in-out forwards",
+      slideUp: "slideBannerImgUp 1s ease-in-out forwards",
+      slideDown: "slideBannerImgDown 1s ease-in-out forwards",
     },
   },
   plugins: [

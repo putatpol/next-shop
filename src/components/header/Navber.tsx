@@ -4,7 +4,7 @@ import { WOMEN_BAGS_ROUTE_PATH } from "@/const/route-paths.const";
 
 const Navber = () => {
   return (
-    <div className="space-x-5 text-xs text-gray-500">
+    <div className="space-x-5 text-xs text-gray-500 *:duration-300 *:ease-out hover:*:tracking-widest">
       <Link href={MEN_SHIRTS_ROUTE_PATH}>
         <p>Mens</p>
       </Link>

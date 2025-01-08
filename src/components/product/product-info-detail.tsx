@@ -1,11 +1,11 @@
 import { ProductApiDto } from "@/interface/productsApi.dto";
-import ProductReview from "./product-reviews";
-import { ButtonAddCart } from "./product-info-btnCart";
+import ProductReview from "./Product-info-reviews";
+import { ButtonAddCart } from "./Product-info-btnCart";
 import { Providers } from "@/app/providers";
 
 const ProductInfoDetail = ({ productData }: { productData: ProductApiDto }) => {
   return (
-    <div className="flex-1 space-y-6">
+    <>
       <div>
         <h1>{productData.title}</h1>
         <h5 className="font-thin text-gray-400">{productData.category}</h5>
@@ -26,7 +26,7 @@ const ProductInfoDetail = ({ productData }: { productData: ProductApiDto }) => {
       </Providers>
 
       <ProductReview reviews={productData.reviews} />
-    </div>
+    </>
   );
 };
 

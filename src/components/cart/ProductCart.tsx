@@ -7,7 +7,6 @@ import {
   removeProductCart,
   updateProductQuantity,
 } from "@/redux/slices/productCartSlice";
-import { useState } from "react";
 
 type Props = {
   products: ProductCartType[];
@@ -59,11 +58,11 @@ const ProductCart = ({ products }: Props) => {
                     {item.products.title}
                   </h3>
 
-                   {/* Total Price */}
+                  {/* Total Price */}
                   <p className="text-sm">$ {item.totalPrice.toFixed(2)}</p>
 
                   {/* Button Quantity */}
-                  <div className="flex gap-2 items-center [&_button]:rounded-lg [&_button]:border [&_button]:border-gray-300 [&_button]:px-2  [&_button]:mt-2">
+                  <div className="flex items-center gap-2 [&_button]:mt-2 [&_button]:rounded-lg [&_button]:border [&_button]:border-gray-300 [&_button]:px-2">
                     <button
                       onClick={() => {
                         const newQuantity = Math.max(item.quantity - 1, 1);
@@ -96,10 +95,13 @@ const ProductCart = ({ products }: Props) => {
 
                 {/* Button Delete */}
                 <button
-                  className="ml-4 flex items-center"
+                  className="ml-4 flex items-center  duration-300 ease-out hover:scale-110 hover:text-red-600"
                   onClick={() => handleDeleteProduct(item.products.id)}
                 >
-                  <FontAwesomeIcon icon={faTrash} className="size-3" />
+                  <FontAwesomeIcon
+                    icon={faTrash}
+                    className="size-3"
+                  />
                 </button>
               </div>
             ))}
@@ -111,7 +113,7 @@ const ProductCart = ({ products }: Props) => {
                 <p className="font-bold">$ {calculatePrice()}</p>
               </div>
 
-              <button className="w-full rounded-full border border-black py-2 hover:bg-black hover:text-white">
+              <button className="w-full rounded-full border border-black py-2 hover:bg-black hover:text-white duration-300 ease-out">
                 <p className="w-full text-center">Check Out</p>
               </button>
             </div>
