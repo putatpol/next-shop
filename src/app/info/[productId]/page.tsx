@@ -1,6 +1,6 @@
 import ButtonBack from "@/components/utils/ButtonBack";
-import ProductInfoCarousel from "@/components/product/Product-info-carousel";
-import ProductInfoDetail from "@/components/product/Product-info-detail";
+import ProductInfoCarousel from "@/components/product/Product-info-carousels";
+import ProductInfoDetail from "@/components/product/Product-info-details";
 import { ProductApiDto } from "@/interface/productsApi.dto";
 
 export default async function ProductInfoPage({
