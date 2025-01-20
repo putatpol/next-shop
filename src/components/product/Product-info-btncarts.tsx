@@ -14,7 +14,7 @@ export const ButtonAddCart = ({
 
   const dispatch = useDispatch();
   const loadingCart = useSelector(
-    (state: RootState) => state.productCart.loadingCart,
+    (state: RootState) => state.reducer.productCart.loadingCart,
   );
   return (
     <>
