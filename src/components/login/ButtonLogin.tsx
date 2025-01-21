@@ -10,8 +10,8 @@ import { RootState } from "@/redux/store";
 const ButtonLogin = () => {
   const dispatch = useDispatch();
 
-  const logined = useSelector((state: RootState) => state.reducer.loginState.isLogin);
-  const token = useSelector((state: RootState) => state.reducer.loginState.token)
+  const logined = useSelector((state: RootState) => state.loginState.isLogin);
+  const token = useSelector((state: RootState) => state.loginState.token)
 
   const handleLogout = () => {
     dispatch(logout());

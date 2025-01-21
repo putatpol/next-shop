@@ -12,7 +12,7 @@ import { RootState } from "@/redux/store";
 const ProductItems = ({ productList }: { productList: ProductApiDto[] }) => {
   const dispatch = useDispatch();
   const loadingCart = useSelector(
-    (state: RootState) => state.reducer.productCart.loadingCart,
+    (state: RootState) => state.productCart.loadingCart,
   );
 
   // console.log("Category: ", productList[0].category);

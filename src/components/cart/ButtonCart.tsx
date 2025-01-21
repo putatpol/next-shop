@@ -26,7 +26,7 @@ const IconCart = ({ productsLength }: Props) => {
 };
 
 const ButtonCart = () => {
-  const products = useSelector((state: RootState) => state.reducer.productCart.items);
+  const products = useSelector((state: RootState) => state.productCart.items);
 
   return (
     // Menu by headlessui
