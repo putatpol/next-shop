@@ -1,5 +1,11 @@
 import FormLogin from "@/components/login/FormLogin";
 import { Providers } from "../providers";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Login",
+  description: "Login to your account"
+}
 
 export default function LoginPage() {
   return (

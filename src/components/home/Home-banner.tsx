@@ -14,7 +14,7 @@ const HomeBanner = () => {
             alt="Picture Woman"
           />
         </div>
-        <div className="absolute left-1/2 top-2/3 z-30 -translate-x-1/2 -translate-y-1/4 text-center">
+        <div className="absolute left-1/2 top-2/3 z-20 -translate-x-1/2 -translate-y-1/4 text-center">
           <div className="flex flex-col items-center space-y-4 *:text-6xl *:sm:text-9xl">
             <h1 className="animate-slideRight self-start">DRESS</h1>
             <h1>YOUR</h1>

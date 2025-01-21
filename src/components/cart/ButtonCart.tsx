@@ -38,7 +38,7 @@ const ButtonCart = () => {
         <MenuItems
           anchor="bottom"
           transition
-          className="itemCart mt-4 border border-gray-300 bg-background"
+          className="itemCart mt-4 border border-gray-300 bg-background z-30"
         >
           <MenuItem>
             {({ close }) => <ProductCart products={products} closeMenu={close}/>}

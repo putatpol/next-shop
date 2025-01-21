@@ -2,6 +2,18 @@ import CategoriesList from "@/components/categories/Categories-list";
 import ProductItems from "@/components/product/Product-items";
 import { ProductsApiResponse } from "@/interface/productsApi.dto";
 import { Providers } from "../providers";
+import { Metadata } from "next";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ categories: string }>;
+}): Promise<Metadata> => {
+  const category = (await params).categories;
+  return {
+    title: category,
+  };
+};
 
 export default async function CategoryPage({
   params,
