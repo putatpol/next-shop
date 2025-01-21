@@ -6,6 +6,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "@/redux/slices/loginSlice";
 import { RootState } from "@/redux/store";
+import ButtonCart from "../cart/ButtonCart";
 
 const ButtonLogin = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const ButtonLogin = () => {
       {logined ? (
         <>
           {/* Logined */}
+          <ButtonCart />
           <div>
             <Menu>
               <MenuButton

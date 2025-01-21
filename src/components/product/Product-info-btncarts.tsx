@@ -4,6 +4,7 @@ import { handleAddToCart } from "../utils/AddCartHandler";
 import { ProductApiDto } from "@/interface/productsApi.dto";
 import { RootState } from "@/redux/store";
 import { useState } from "react";
+import { redirect } from "next/navigation";
 
 export const ButtonAddCart = ({
   productData,
@@ -16,6 +17,21 @@ export const ButtonAddCart = ({
   const loadingCart = useSelector(
     (state: RootState) => state.productCart.loadingCart,
   );
+  const logined = useSelector((state: RootState) => state.loginState.isLogin);
+
+  const handleAddItemCart = (productData: ProductApiDto) => {
+    if (!logined) {
+      redirect("/login");
+    }
+    handleAddToCart(
+      dispatch,
+      productData.id,
+      productData.title,
+      productData.price,
+      productData.thumbnail,
+      itemQty,
+    );
+  };
   return (
     <>
       {/* Product Price */}
@@ -59,20 +75,13 @@ export const ButtonAddCart = ({
         <button
           disabled={loadingCart[productData.id]}
           onClick={() => {
-            handleAddToCart(
-              dispatch,
-              productData.id,
-              productData.title,
-              productData.price,
-              productData.thumbnail,
-              itemQty,
-            );
+            handleAddItemCart(productData);
           }}
           className="rounded-lg bg-black px-4 py-2 text-lg text-white hover:opacity-80 disabled:bg-gray-400"
         >
           add to cart
           {loadingCart[productData.id] && (
-            <span className="animate-fadeUp absolute -translate-y-10 text-gray-500">
+            <span className="absolute -translate-y-10 animate-fadeUp text-gray-500">
               + {itemQty}
             </span>
           )}

@@ -8,14 +8,40 @@ import { ProductApiDto } from "@/interface/productsApi.dto";
 import { useDispatch, useSelector } from "react-redux";
 import { handleAddToCart } from "../utils/AddCartHandler";
 import { RootState } from "@/redux/store";
+import { redirect } from "next/navigation";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const ProductItems = ({ productList }: { productList: ProductApiDto[] }) => {
   const dispatch = useDispatch();
   const loadingCart = useSelector(
     (state: RootState) => state.productCart.loadingCart,
   );
+  const logined = useSelector((state: RootState) => state.loginState.isLogin);
 
   // console.log("Category: ", productList[0].category);
+  const handleAddItemCart = (item: ProductApiDto) => {
+    if (!logined) {
+      redirect("/login");
+    }
+    handleAddToCart(
+      dispatch,
+      item.id,
+      item.title,
+      item.price,
+      item.thumbnail,
+      1,
+    );
+  };
+
+  // ใช้ usepathname >> userouter +++
+  const pathname = usePathname();
+  useEffect(() => {
+    if (!logined) {
+      sessionStorage.setItem("redirectUrl", pathname);
+    }
+  }, [pathname, logined]);
+
   return (
     <>
       {productList.map((item: ProductApiDto) => (
@@ -46,16 +72,7 @@ const ProductItems = ({ productList }: { productList: ProductApiDto[] }) => {
               <button
                 className="self-end rounded-full px-3 py-2 duration-300 ease-out hover:scale-110 hover:bg-gray-200 disabled:text-gray-400"
                 disabled={loadingCart[item.id]}
-                onClick={() => {
-                  handleAddToCart(
-                    dispatch,
-                    item.id,
-                    item.title,
-                    item.price,
-                    item.thumbnail,
-                    1,
-                  );
-                }}
+                onClick={() => handleAddItemCart(item)}
               >
                 <FontAwesomeIcon icon={faCartPlus} className="size-6" />
               </button>

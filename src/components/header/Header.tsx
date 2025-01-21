@@ -1,5 +1,4 @@
 import React from "react";
-import ButtonCart from "../cart/ButtonCart";
 import Navber from "./Navber";
 import Link from "next/link";
 import ButtonLogin from "../login/ButtonLogin";
@@ -15,7 +14,6 @@ const Header = () => {
         </div>
         <Navber />
         <div className="space-x-2">
-          <ButtonCart />
           <ButtonLogin />
         </div>
       </div>

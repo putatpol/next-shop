@@ -3,12 +3,17 @@
 import React from "react";
 import { login } from "@/redux/slices/loginSlice";
 import { useDispatch } from "react-redux";
+// import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const FormLogin = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const handleLogin = () => {
     dispatch(login("token123"));
+    const redirectUrl = sessionStorage.getItem("redirectUrl") || "/";
+    router.push(redirectUrl);
   };
   return (
     <>
