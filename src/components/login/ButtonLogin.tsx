@@ -12,13 +12,17 @@ const ButtonLogin = () => {
   const dispatch = useDispatch();
 
   const logined = useSelector((state: RootState) => state.loginState.isLogin);
-  const token = useSelector((state: RootState) => state.loginState.token)
+  const user = useSelector(
+    (state: RootState) => state.loginState.userFirstname,
+  );
 
   const handleLogout = () => {
+    sessionStorage.removeItem("redirectUrl");
     dispatch(logout());
   };
+
   console.log("logined", logined);
-  console.log("token", token);
+  console.log("user: ", user);
 
   return (
     <>
@@ -33,7 +37,7 @@ const ButtonLogin = () => {
                   "flex items-center rounded-full px-4 py-2 text-sm duration-300 ease-out hover:bg-gray-200"
                 }
               >
-                <p>Username</p>
+                <p>{user}</p>
               </MenuButton>
               <MenuItems
                 transition

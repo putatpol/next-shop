@@ -9,8 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleAddToCart } from "../utils/AddCartHandler";
 import { RootState } from "@/redux/store";
 import { redirect } from "next/navigation";
-import { useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useSaveRedirectUrl } from "../utils/useSaveRedirectUrl";
 
 const ProductItems = ({ productList }: { productList: ProductApiDto[] }) => {
   const dispatch = useDispatch();
@@ -34,13 +33,8 @@ const ProductItems = ({ productList }: { productList: ProductApiDto[] }) => {
     );
   };
 
-  // ใช้ usepathname >> userouter +++
-  const pathname = usePathname();
-  useEffect(() => {
-    if (!logined) {
-      sessionStorage.setItem("redirectUrl", pathname);
-    }
-  }, [pathname, logined]);
+  // Save url for not login
+  useSaveRedirectUrl(logined);
 
   return (
     <>

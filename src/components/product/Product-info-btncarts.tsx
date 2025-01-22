@@ -5,6 +5,7 @@ import { ProductApiDto } from "@/interface/productsApi.dto";
 import { RootState } from "@/redux/store";
 import { useState } from "react";
 import { redirect } from "next/navigation";
+import { useSaveRedirectUrl } from "../utils/useSaveRedirectUrl";
 
 export const ButtonAddCart = ({
   productData,
@@ -32,6 +33,10 @@ export const ButtonAddCart = ({
       itemQty,
     );
   };
+
+  // Save url for not login
+  useSaveRedirectUrl(logined);
+
   return (
     <>
       {/* Product Price */}
