@@ -26,6 +26,7 @@ const FormLogin = () => {
       };
 
       try {
+        setErrorAlert("");
         const response = await fetch(url, {
           method: "POST",
           headers: {
@@ -41,9 +42,9 @@ const FormLogin = () => {
 
         const result = await response.json();
         dispatch(login(`${result.firstName}`));
-        setErrorAlert("");
+
         sessionStorage.removeItem("redirectUrl");
-        
+
         // Pre-routing to URL
         const redirectUrl = sessionStorage.getItem("redirectUrl") || "/";
         router.push(redirectUrl);
@@ -67,12 +68,14 @@ const FormLogin = () => {
           type="text"
           name="username"
           placeholder="username"
+          required
           className="mb-4 focus:outline-none focus:ring-1 focus:ring-black"
         />
         <input
           type="password"
           name="password"
           placeholder="password"
+          required
           className="mb-12 focus:outline-none focus:ring-1 focus:ring-black"
         />
         <small className="mb-2 text-center text-red-500">{errorAlert}</small>

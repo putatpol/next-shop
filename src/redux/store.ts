@@ -15,7 +15,7 @@ import {
 const loginPersistConfig = {
   key: "loginState", // ชื่อ state
   storage, // เก็บใน local storage
-  whitelist: ["isLogin"], // จะเก็บเฉพาะ isLogin
+  whitelist: ["isLogin", "userFirstname"], // จะเก็บ isLogin, userFirstname
 };
 
 const productCartPersistConfig = {
