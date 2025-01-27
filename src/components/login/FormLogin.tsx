@@ -41,6 +41,13 @@ const FormLogin = () => {
         }
 
         const result = await response.json();
+        const accessToken = result.accessToken;
+
+        if (accessToken) {
+          console.log("token: ", accessToken);
+          document.cookie = `authToken=${accessToken}; path=/; secure; samesite=strict`;
+        }
+
         dispatch(login(`${result.firstName}`));
 
         sessionStorage.removeItem("redirectUrl");

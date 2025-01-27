@@ -4,7 +4,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const categoryName = searchParams.get("category");
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_CALL_URL}/category/${categoryName}`,
+    `${process.env.NEXT_PUBLIC_API_CALL_URL}/products/category/${categoryName}`,
     {
       method: "GET",
     },

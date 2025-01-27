@@ -45,9 +45,11 @@ const ButtonLogin = () => {
                 className="z-50 mt-4 w-52 border border-gray-300 bg-[--background]"
               >
                 <MenuItem>
-                  <button className="group flex w-full items-center gap-2 border-b border-gray-300 p-4 data-[focus]:bg-gray-200">
-                    Profile
-                  </button>
+                  <Link href={"/profile"}>
+                    <button className="group flex w-full items-center gap-2 border-b border-gray-300 p-4 data-[focus]:bg-gray-200">
+                      Profile
+                    </button>
+                  </Link>
                 </MenuItem>
                 <MenuItem>
                   <button

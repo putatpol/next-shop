@@ -6,7 +6,7 @@ import { Metadata } from "next";
 
 const fetchProductData = async (productId: string): Promise<ProductApiDto> => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_CALL_URL}/${productId}`,
+    `${process.env.NEXT_PUBLIC_API_CALL_URL}/products/${productId}`,
     {
       method: "GET",
     },

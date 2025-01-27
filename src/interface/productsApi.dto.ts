@@ -35,3 +35,22 @@ export interface ReviewDto {
   date: string;
   reviewerName: string;
 }
+
+export interface profileDto {
+  firstName: string;
+  lastName: string;
+  age: number;
+  gender: string;
+  email: string;
+  phone: string;
+  birthDate: string;
+  image: string;
+  address: {
+    address: string;
+    city: string;
+    state: string;
+    stateCode: string;
+    postalCode: string;
+    country: string;
+  }
+}
